@@ -34,16 +34,16 @@
                         <a class="nav-link @if (request()->is('operasional')) active @endif" aria-current="page"
                             href="{{ route('operasional') }}">Operasional</a>
                     </li>
+                    @if (Auth::user()->role == "admin")
                     <li class="nav-item">
                         <a class="nav-link @if (request()->is('user')) active @endif" aria-current="page"
                             href="{{ route('user') }}">User</a>
                     </li>
+                    @endif
                 </ul>
-
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search"aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit"  wire:click="click">Search</button>
-                </form>
+                <div>
+                    <a class="text-danger text-decoration-none fw-bold" href="/logout">Logout</a>
+                </div>
             </div>
         </div>
     </nav>
