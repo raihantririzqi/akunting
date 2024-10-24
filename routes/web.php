@@ -26,7 +26,7 @@ Route::middleware(['guest'])->group(function(){
 Route::middleware(['auth'])->group(function(){
     Route::get('/logout', [AuthController::class, 'logout']);
     Route::get('/dashboard', DashboardLivewire::class)->name('dashboard');
-    Route::get('/user', UserLivewire::class)->name('user');
+    Route::get('/user', UserLivewire::class)->name('user')->middleware('admin');
     Route::get('/operasional', OperasionalLivewire::class)->name('operasional');
-    Route::get('/akun', AkunLivewire::class)->name('akun')->middleware('admin');
+    Route::get('/akun', AkunLivewire::class)->name('akun');
 });

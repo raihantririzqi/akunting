@@ -75,9 +75,9 @@
                         <td>{{ $datas->tanggal }}</td>
                         <td>{{ $datas->jumlah }}</td>
                         <td>{{ $datas->tipe }}</td>
-                        <td>{{ $datas->kas_masuk }}</td>
-                        <td>{{ $datas->kas_keluar }}</td>
-                        <td>{{ $datas->saldo }}</td>
+                        <td>Rp. {{ number_format($datas->kas_masuk, 0, ',', '.') }}</td>
+                        <td>Rp. {{ number_format($datas->kas_keluar, 0, ',', '.') }}</td>
+                        <td>Rp. {{ number_format($datas->saldo, 0, ',', '.') }}</td>
                         <td>
                             <button type="button" class="btn btn-danger" wire:click.prevent="destroy({{ $datas->id }})">
                                 Delete
@@ -143,7 +143,7 @@
                                 <input type="number" name="saldo" wire:model.live="saldo" placeholder="Saldo"
                                     class="form-control" autocomplete="off" required>
                             </div>
-                            <hr>
+                            <hr class="my-4">
                             <div class="d-flex" style="width: 100%">
                                 <div class="col-md-6">
                                     <button wire:loading.attr="disabled" type="submit" class="btn btn-primary btn-block">Save</button>
