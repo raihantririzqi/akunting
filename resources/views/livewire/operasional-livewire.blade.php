@@ -49,7 +49,6 @@
                     <th>Kas Masuk</th>
                     <th>Kas Keluar</th>
                     <th>Saldo</th>
-                    <th>Action</th>
                 </tr>
             </thead>
             <tfoot>
@@ -63,7 +62,6 @@
                     <th>Kas Masuk</th>
                     <th>Kas Keluar</th>
                     <th>Saldo</th>
-                    <th>Action</th>
                 </tr>
             </tfoot>
             <tbody>
@@ -78,15 +76,6 @@
                         <td>Rp. {{ number_format($datas->kas_masuk, 0, ',', '.') }}</td>
                         <td>Rp. {{ number_format($datas->kas_keluar, 0, ',', '.') }}</td>
                         <td>Rp. {{ number_format($datas->saldo, 0, ',', '.') }}</td>
-                        <td>
-                            <button type="button" class="btn btn-danger" wire:click.prevent="destroy({{ $datas->id }})">
-                                Delete
-                            </button>
-                            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#edit"
-                                wire:click.prevent="show({{ $datas->id }})">
-                                Edit
-                            </button>
-                        </td>
                     </tr>
                 @endforeach
             </tbody>
