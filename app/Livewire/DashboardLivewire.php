@@ -13,9 +13,12 @@ class DashboardLivewire extends Component
     {
         $totalKas = Operasional::selectRaw('SUM(kas_masuk) as kas_masuk, SUM(kas_keluar) as kas_keluar')->first();
         $saldoTerakhir = Operasional::orderBy('id', 'desc')->limit(1)->first();
+
+        $saldoAkhirValue = $saldoTerakhir ? strval($saldoTerakhir->saldo) : '0';
+
         $data = [
             'total_kas' => $totalKas,
-            'saldo_akhir' => $saldoTerakhir
+            'saldo_akhir' => $saldoAkhirValue
         ];
         return view('livewire.dashboard-livewire', $data);
     }
